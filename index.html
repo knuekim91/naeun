@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나은이 입시 · 2027학년도</title>
+<meta name="description" content="김나은 2027학년도 대입 수시·정시 관리">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍒</text></svg>">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">나은이 입시<small id="brandSub">2027학년도</small></div>
+    <div class="spacer"></div>
+    <button class="theme-btn" id="themeBtn" type="button">다크</button>
+  </div>
+  <nav class="tabs" id="tabs" role="tablist">
+    <button role="tab" data-tab="home" aria-selected="true">대시보드</button>
+    <button role="tab" data-tab="susi" aria-selected="false">수시</button>
+    <button role="tab" data-tab="jeongsi" aria-selected="false">정시</button>
+    <button role="tab" data-tab="score" aria-selected="false">성적 분석</button>
+    <button role="tab" data-tab="jinro" aria-selected="false">진로</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home"></section>
+  <section id="susi" hidden></section>
+  <section id="jeongsi" hidden></section>
+  <section id="score" hidden></section>
+  <section id="jinro" hidden></section>
+</main>
+
+<footer class="foot">
+  <div>전형 정보는 각 대학 <b>2027학년도 수시모집요강</b>에서 직접 추출했습니다. 요강은 대교협 심의 등으로 변경될 수 있으니, 원서접수 전 반드시 입학처 공지사항을 확인하세요.</div>
+  <div style="margin-top:6px" id="footUpdated"></div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
