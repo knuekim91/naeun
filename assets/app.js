@@ -9,6 +9,9 @@
   };
   var TODAY = new Date(); TODAY.setHours(0, 0, 0, 0);
 
+  // 날짜를 추가할 때 순서를 신경 쓰지 않아도 되도록 항상 정렬해 둔다
+  D.keyDates.sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+
   function days(iso) {
     var d = new Date(iso + 'T00:00:00');
     return Math.round((d - TODAY) / 86400000);
@@ -144,7 +147,7 @@
       '<b>지원 조합의 논리</b><br>' +
       '생기부를 <b>쓰는</b> 카드 4장(학종)과 <b>안 쓰는</b> 카드 2장(논술)으로 갈라 두었습니다. ' +
       '1·2학년 생명과학 생기부는 학종에서, 3학년에 바뀐 경영·경제 희망은 논술에서 각각 제 값을 받습니다. ' +
-      '수능최저가 없는 카드(경북대·건국대·중앙대 융합형)가 3장 있어, 수능이 흔들려도 완전히 무너지지 않는 구조입니다.' +
+      '수능최저가 없는 카드는 경북대·건국대 2장입니다. 나머지 4장은 최저를 못 맞추면 서류·논술이 아무리 좋아도 무효이므로, 수능이 이 조합 전체의 생명선입니다.' +
       '</div>';
 
     h += '<div class="grid g2" style="margin-top:16px">' + D.susi.map(uniCard).join('') + '</div>';
@@ -157,8 +160,16 @@
           '<span class="dt">' + esc(k.date.slice(2).replace(/-/g, '.')) + ' ' + fmt(k.date).replace(/^[\d.]+/, '') + '</span>' +
           '<span class="lb">' + esc(k.label) + '</span><span class="dd">' + ddText(n) + '</span></li>';
       }).join('') + '</ul>' +
-      '<div class="note" style="padding:4px 0 2px">논술 2개는 11.21(토)·11.22(일)로 하루 차이, 면접 2개는 12.5(토)·12.6(일)로 이틀 연속입니다. 날짜는 겹치지 않지만 체력 배분과 이동 계획이 필요합니다. 경북대 면접일은 모집요강에서 확인하세요.</div>' +
       '</div>';
+
+    h += '<div class="callout" style="margin-top:14px;background:var(--red-soft);border-color:color-mix(in srgb, var(--red) 30%, transparent)">' +
+      '<b style="color:var(--red)">⚠ 11월 21일(토) 일정 충돌</b><br>' +
+      '<b>성균관대 경영학과 논술</b>(13:00~14:40, 12:30 입실 · 서울 또는 수원)과 ' +
+      '<b>경북대 생명공학부 면접</b>(대구, 시간은 11.17 고사장 안내 시 개별 통보)이 같은 날입니다. ' +
+      '경북대 1단계 발표가 11.6(금)이므로, 그날 통과 여부를 확인한 뒤 둘 중 무엇을 택할지 정하면 됩니다. ' +
+      '경북대는 수능최저가 없는 안전 카드이고 성균관대는 최저(3개 합 6)가 걸린 상향 카드라는 점이 판단 기준이 됩니다.' +
+      '</div>' +
+      '<div class="note">12.5(토) 중앙대 면접과 12.6(일) 건국대 면접은 이틀 연속입니다. 날짜는 겹치지 않지만 서울 체류 일정으로 묶어 두는 편이 낫습니다.</div>';
 
     h += '<h2 class="sec">모집요강 원문</h2>';
     h += '<p class="lead">각 대학 입학처에서 받아 온 2027학년도 수시모집요강 PDF입니다.</p>';
@@ -188,9 +199,11 @@
       : '<span style="color:var(--text-3)">' + esc(s.quotaNote || '확인 필요') + '</span>');
     rows += kv('수능최저', esc(s.minimum) + (s.minimumNote ? '<div class="note">' + esc(s.minimumNote) + '</div>' : ''));
     rows += kv('원서접수', esc(s.apply));
+    if (s.docSubmit) rows += kv('서류제출', esc(s.docSubmit));
     if (s.exam) rows += kv('논술고사', '<b>' + esc(s.exam) + '</b>');
     if (s.stage1) rows += kv('1단계 발표', esc(s.stage1));
-    if (s.interview) rows += kv('면접', '<b>' + esc(s.interview) + '</b>');
+    if (s.interview) rows += kv('면접', '<b>' + esc(s.interview) + '</b>' +
+      (s.conflict ? '<div class="note" style="color:var(--red)">⚠ ' + esc(s.conflict) + '</div>' : ''));
     rows += kv('합격발표', esc(s.announce));
     if (s.fee) rows += kv('전형료', esc(s.fee));
 
