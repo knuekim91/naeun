@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ko" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>사문 표 분석 특훈 · 나은이 입시</title>
+<meta name="description" content="사회문화 표 분석 문항 출제 경향 분석과 유형별 실전 연습 문제">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<style>
+  .p-card{padding:18px 20px;margin-bottom:16px}
+  .p-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .p-head .no{font-weight:700;font-size:15px}
+  .p-stem{font-size:14.5px;line-height:1.7;margin:0 0 12px}
+  .p-cond{font-size:13.5px;color:var(--text-2);background:var(--surface-2);border-radius:10px;padding:10px 13px;margin:0 0 12px;line-height:1.7}
+  .p-bogi{list-style:none;margin:0 0 14px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:13.8px;line-height:1.85;background:var(--surface)}
+  .p-bogi li{display:flex;gap:8px}
+  .p-bogi b{flex:0 0 auto;color:var(--accent)}
+  .p-opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+  .p-opts span{border:1px solid var(--border);border-radius:8px;padding:5px 11px;font-size:13.5px;font-variant-numeric:tabular-nums}
+  details.ans{margin-top:10px}
+  details.ans>summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--accent);list-style:none;padding:8px 0;user-select:none}
+  details.ans>summary::-webkit-details-marker{display:none}
+  details.ans>summary::before{content:'▸ ';font-size:12px}
+  details.ans[open]>summary::before{content:'▾ '}
+  .sol{background:var(--green-soft);border-radius:10px;padding:13px 15px;font-size:13.8px;line-height:1.8}
+  .sol .ans-badge{display:inline-block;background:var(--green);color:#fff;border-radius:7px;padding:2px 10px;font-weight:700;font-size:13px;margin-bottom:8px}
+  .sol ol{margin:8px 0 0;padding-left:19px}
+  .sol ol li{margin:4px 0}
+  .done-row{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border)}
+  .done-row input{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+  .done-row label{font-size:13px;color:var(--text-2);cursor:pointer}
+  .prog-bar{height:8px;border-radius:5px;background:var(--surface-2);overflow:hidden;margin-top:8px}
+  .prog-bar>div{height:100%;background:var(--accent);border-radius:5px;transition:width .3s}
+  .strat li{margin:0 0 10px;padding-left:2px}
+  .strat b{color:var(--text)}
+  .oxtbl td.ok{color:var(--green);font-weight:700;text-align:center}
+  .oxtbl td.no{color:var(--red);font-weight:700;text-align:center}
+  .catnav{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 24px}
+  .catnav a{border:1px solid var(--border);border-radius:999px;padding:6px 13px;font-size:13px;color:var(--text-2)}
+  .catnav a:hover{background:var(--accent-soft);color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">사문 표 분석 특훈<small>2027학년도 · 사회문화</small></div>
+    <div class="spacer"></div>
+    <a class="btn" href="../index.html">← 대시보드</a>
+    <button class="theme-btn" id="themeBtn" type="button">다크</button>
+  </div>
+</header>
+
+<main>
+
+<h2 class="sec" style="margin-top:0">이 페이지는</h2>
+<p class="lead">최근 평가원 6월·9월 모의평가(2026·2027학년도)의 사회문화 출제 경향을 분석하고, 가장 까다로운 <b>표(도표) 분석 문항</b>을 어떻게 공략할지 정리했습니다. 이어서 유형별 연습 문제 12제를 직접 풀어볼 수 있습니다.</p>
+
+<div class="catnav">
+  <a href="#trend">① 최근 출제 경향</a>
+  <a href="#strategy">② 표 분석 8단계 전략</a>
+  <a href="#type-a">③-A 계층 구조표</a>
+  <a href="#type-b">③-B 계층 이동표</a>
+  <a href="#type-c">③-C 인구 부양비</a>
+  <a href="#type-d">③-D 사회보장·빈곤</a>
+</div>
+
+<h2 class="sec" id="trend">① 최근 평가원 모의평가 출제 경향</h2>
+<div class="grid g2">
+  <div class="card track">
+    <h3><span class="pill grey">작년 · 6월</span> 2026학년도 6월 모평</h3>
+    <p>킬러문항 없이 무난하게 출제. 표 분석도 수능특강·기출과 비슷한 수준으로, 최고 표준점수가 67점에 그칠 만큼 응시생 체감 난이도는 낮았습니다.</p>
+  </div>
+  <div class="card track">
+    <h3><span class="pill rose">작년 · 9월</span> 2026학년도 9월 모평</h3>
+    <p>표 해석 문항(15·18·20번)이 <b>새로운 킬러파트</b>로 부상. 표의 숫자만으로 사실 유무를 가려내는 방식이 강화됐고, 개념형 13번도 오답률 86.3%를 기록했습니다.</p>
+  </div>
+  <div class="card track">
+    <h3><span class="pill amber">올해 · 6월</span> 2027학년도 6월 모평</h3>
+    <p>계층 구조(10번)·사회보장제도(15번)·인구 구성(20번) 문항이 여러 자료를 동시에 계산해야 하는 전형적 고난도 유형으로 출제. 전체 난이도는 작년 수능보다 약간 쉬웠던 것으로 평가됩니다.</p>
+  </div>
+  <div class="card track">
+    <h3><span class="pill blue">올해 · 9월</span> 2027학년도 9월 모평</h3>
+    <p>"핵심적·기본적 내용 출제" 기조를 유지하면서도 자료 해석·탐구 사고력을 평가하는 문항 비중이 강조됨. 표 분석형 문항은 계속 20번 부근에 배치되는 흐름이 이어지고 있습니다.</p>
+  </div>
+</div>
+
+<div class="callout" style="margin-top:16px">
+  <b>종합 시사점</b><br>
+  1) 표 분석 문항은 4단원(사회 계층과 불평등)과 5단원(현대의 사회 변동)에서 집중적으로 출제되며, 거의 매회 20번 근처에 배치됩니다.<br>
+  2) 난이도의 축이 <b>복잡한 계산</b>에서 <b>함정 선지(비율 vs 실수, 모집단 혼동)</b> 쪽으로 옮겨가고 있습니다 — 계산이 쉬워 보여도 방심하면 틀리는 구조입니다.<br>
+  3) 6월·9월 모평의 표 문항을 3회 이상 반복해 "낚시 선지 패턴"에 익숙해지는 것이 수능 대비에 가장 효과적이라는 것이 공통된 조언입니다.
+</div>
+
+<h2 class="sec" id="strategy">② 표 분석 8단계 전략</h2>
+<p class="lead">여러 입시 커뮤니티(오르비 등)와 강사 풀이법을 종합한 실전 절차입니다. 아래 순서를 그대로 연습 문제에 적용해 보세요.</p>
+<div class="card" style="padding:18px 22px">
+  <ol class="strat" style="font-size:14px;line-height:1.7">
+    <li><b>1. 표의 뼈대부터 읽는다.</b> 행/열이 무엇을 의미하는지, 단위가 %(비율)인지 명(실수)인지부터 확인합니다. 여기서 착각하면 이후 계산이 전부 틀어집니다.</li>
+    <li><b>2. 전체를 100(또는 표에 준 기준 인원)으로 놓고 표를 직접 채운다.</b> 비율표는 반드시 실수로 환산해 빈칸에 적어가며 풉니다. 머릿속 계산은 오답의 지름길입니다.</li>
+    <li><b>3. 문제의 조건을 발견한 순서가 아니라, 풀 수 있는 순서대로 정리한다.</b> 조건 하나로 표의 미지수 하나를 없애고, 그 값을 이용해 다음 미지수를 구하는 식으로 연쇄적으로 채워갑니다.</li>
+    <li><b>4. 가로 합·세로 합을 항상 검산한다.</b> 표를 다 채운 뒤 행 합계와 열 합계가 서로 맞는지 확인하면 계산 실수를 바로 잡을 수 있습니다.</li>
+    <li><b>5. 이동표는 '이동 전(부모)'과 '이동 후(자녀)'를 분리해서 본다.</b> 대각선 칸(상→상, 중→중, 하→하)은 대물림, 그 외 칸은 이동입니다. 상승·하강은 항상 합산해서 비교합니다.</li>
+    <li><b>6. 부양비 문제는 '생산가능인구 100(또는 1,000) 고정' 풀이를 쓴다.</b> 유소년부양비·노년부양비·총부양비·노령화지수는 서로 변환이 잦으므로, 공식을 다시 유도하지 말고 즉시 상호 환산하는 연습을 반복합니다.</li>
+    <li><b>7. 함정 선지 체크리스트를 통과시킨다.</b>
+      <ul style="margin:6px 0 0;padding-left:18px">
+        <li>· 분모가 다른 두 비율을 그냥 더하거나 빼지 않았는가</li>
+        <li>· '전체 국민' 대비 비율인지 '특정 집단 내' 비율인지 구분했는가</li>
+        <li>· 비율이 같아도(혹은 커도) 모집단 크기가 다르면 실수는 달라질 수 있음을 반영했는가</li>
+        <li>· 표에 명시되지 않은 항목(외국인, 무응답 등)이 존재할 가능성을 배제하지 않았는가</li>
+      </ul>
+    </li>
+    <li><b>8. 선지를 먼저 훑어 '실수 비교'인지 '비율 비교'인지 파악한 뒤 표 채우는 방향을 정한다.</b> 물어보는 것과 반대 방향으로 계산하면 시간만 낭비됩니다.</li>
+  </ol>
+</div>
+
+<h2 class="sec" id="type-a">③-A 유형: 사회 계층 구조표</h2>
+<p class="lead">두 시점 또는 두 국가의 상·중·하층 구성비(%)를 비교하며 계층 구조 유형(피라미드형·다이아몬드형)을 판단하는 유형입니다.</p>
+
+<!-- A1 -->
+<div class="card p-card" data-pid="A1">
+  <div class="p-head"><span class="no">A1</span><span class="pill green">하</span><span class="pill grey">계층 구조표</span></div>
+  <p class="p-stem">다음은 갑국의 계층 구성비 변화를 나타낸 것이다. 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 갑국의 계층은 상층, 중층, 하층으로만 구성된다.)</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>인구</th><th>상층</th><th>중층</th><th>하층</th></tr></thead>
+    <tbody>
+      <tr><td>t년</td><td>1,000만 명</td><td>10%</td><td>30%</td><td>60%</td></tr>
+      <tr><td>t+10년</td><td>2,000만 명</td><td>20%</td><td>50%</td><td>30%</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> t년의 계층 구조는 피라미드형이다.</li>
+    <li><b>ㄴ.</b> t+10년의 계층 구조는 다이아몬드형이다.</li>
+    <li><b>ㄷ.</b> 하층 인구는 t년과 t+10년이 같다.</li>
+    <li><b>ㄹ.</b> 중층 인구는 t년 대비 t+10년에 4배로 증가하였다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄷ</span><span>② ㄴ,ㄹ</span><span>③ ㄷ,ㄹ</span><span>④ ㄱ,ㄴ,ㄷ</span><span>⑤ ㄴ,ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ④</span>
+      <ol>
+        <li>실수로 환산: t년 상층 100만 / 중층 300만 / 하층 600만. t+10년 상층 400만 / 중층 1,000만 / 하층 600만.</li>
+        <li>ㄱ: t년은 상(10%)&lt;중(30%)&lt;하(60%)로 아래로 갈수록 비율이 커지는 피라미드형 → 참.</li>
+        <li>ㄴ: t+10년은 중층(50%)이 상층+하층(50%)과 같거나 가장 커서 다이아몬드형 → 참.</li>
+        <li>ㄷ: 하층 실수는 600만 명으로 두 시점이 동일 → 참. (비율은 60%→30%로 줄었지만 실수는 그대로인 대표적 함정 포인트)</li>
+        <li>ㄹ: 중층 실수는 300만→1,000만으로 약 3.33배이지 4배가 아님 → 거짓. 비율만 보고 "50%는 30%의 약 1.7배니까..." 식으로 암산하면 틀리기 쉬운 지점.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-A1"><label for="chk-A1">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- A2 -->
+<div class="card p-card" data-pid="A2">
+  <div class="p-head"><span class="no">A2</span><span class="pill amber">중</span><span class="pill grey">계층 구조표</span></div>
+  <p class="p-stem">다음은 t년 갑국과 을국의 계층 구성비를 나타낸 것이다. 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>상층</th><th>중층</th><th>하층</th></tr></thead>
+    <tbody>
+      <tr><td>갑국 (인구 500만 명)</td><td>20%</td><td>30%</td><td>50%</td></tr>
+      <tr><td>을국 (상층 인구 40만 명)</td><td>10%</td><td>20%</td><td>70%</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 갑국의 하층 인구는 을국의 하층 인구보다 적다.</li>
+    <li><b>ㄴ.</b> 갑국과 을국의 상층 인구 차이는 60만 명이다.</li>
+    <li><b>ㄷ.</b> 중층 인구는 갑국이 을국의 2배 이상이다.</li>
+    <li><b>ㄹ.</b> 을국의 계층 구조는 피라미드형이다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄴ,ㄹ</span><span>② ㄱ,ㄷ</span><span>③ ㄴ,ㄷ</span><span>④ ㄷ,ㄹ</span><span>⑤ ㄴ,ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ①</span>
+      <ol>
+        <li>을국 전체 인구부터 역산: 상층 인구 40만 명 = 10% → 전체 인구 400만 명.</li>
+        <li>을국 중층 = 400만×20% = 80만 명, 하층 = 400만×70% = 280만 명.</li>
+        <li>갑국은 그대로 계산: 상층 100만 / 중층 150만 / 하층 250만.</li>
+        <li>ㄱ: 갑국 하층 250만 &lt; 을국 하층 280만 → 참.</li>
+        <li>ㄴ: 100만 − 40만 = 60만 → 참.</li>
+        <li>ㄷ: 150만 ÷ 80만 = 1.875배로 2배 미만 → 거짓. "대략 2배 아닌가"라고 암산하면 틀리는 지점.</li>
+        <li>ㄹ: 을국은 상(10%)&lt;중(20%)&lt;하(70%)로 피라미드형 → 참.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-A2"><label for="chk-A2">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- A3 -->
+<div class="card p-card" data-pid="A3">
+  <div class="p-head"><span class="no">A3</span><span class="pill rose">상 · 킬러</span><span class="pill grey">계층 구조표</span></div>
+  <p class="p-stem">다음은 갑국의 계층 구성비 변화를 나타낸 것이다. A에 들어갈 값과 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="p-cond">조건 1. t+1년 갑국 인구는 t년보다 20% 증가하였다.<br>조건 2. t+1년 상층 인구는 t년 상층 인구보다 50만 명 많다.</div>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>인구</th><th>상층</th><th>중층</th><th>하층</th></tr></thead>
+    <tbody>
+      <tr><td>t년</td><td>1,000만 명</td><td>10%</td><td>40%</td><td>50%</td></tr>
+      <tr><td>t+1년</td><td>?</td><td>A%</td><td>37.5%</td><td>50%</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> A는 12.5이다.</li>
+    <li><b>ㄴ.</b> 중층 인구는 t년보다 t+1년에 50만 명 많다.</li>
+    <li><b>ㄷ.</b> 하층 인구는 t년과 t+1년이 같다.</li>
+    <li><b>ㄹ.</b> 갑국의 계층 구조는 t년에는 다이아몬드형, t+1년에는 피라미드형이다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄴ</span><span>② ㄱ,ㄷ</span><span>③ ㄴ,ㄹ</span><span>④ ㄱ,ㄴ,ㄷ</span><span>⑤ ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ①</span>
+      <ol>
+        <li>t+1년 인구 = 1,000만 × 1.2 = 1,200만 명.</li>
+        <li>t년 상층 인구 = 100만 명 → t+1년 상층 인구 = 100만 + 50만 = 150만 명 → A = 150 ÷ 1,200 × 100 = 12.5 (ㄱ 참).</li>
+        <li>검산: 12.5 + 37.5 + 50 = 100 → 정합성 확인.</li>
+        <li>중층 인구: t년 400만, t+1년 1,200만×37.5% = 450만 → 50만 명 많음 (ㄴ 참).</li>
+        <li>하층 인구: t년 500만, t+1년 1,200만×50% = 600만 → 서로 다름 (ㄷ 거짓, 비율은 50%로 같지만 인구가 늘어 실수는 증가).</li>
+        <li>구조 판정: t년(10&lt;40&lt;50)과 t+1년(12.5&lt;37.5&lt;50) 모두 하층이 가장 큰 피라미드형으로 동일 → ㄹ은 "다이아몬드형→피라미드형으로 바뀌었다"는 서술 자체가 거짓.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-A3"><label for="chk-A3">이 문제 풀이 완료</label></div>
+</div>
+
+<h2 class="sec" id="type-b">③-B 유형: 세대 간 계층 이동표</h2>
+<p class="lead">부모 세대(행) × 자녀 세대(열) 매트릭스에서 대물림·상승 이동·하강 이동을 구분해 계산하는 유형입니다.</p>
+
+<!-- B1 -->
+<div class="card p-card" data-pid="B1">
+  <div class="p-head"><span class="no">B1</span><span class="pill green">하</span><span class="pill grey">계층 이동표</span></div>
+  <p class="p-stem">다음은 갑국의 세대 간 계층 이동 현황을 조사한 것이다(단위: 명). 이에 대한 설명으로 옳은 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>부모＼자녀</th><th>상층</th><th>중층</th><th>하층</th><th>합</th></tr></thead>
+    <tbody>
+      <tr><td>상층</td><td>10</td><td>6</td><td>4</td><td>20</td></tr>
+      <tr><td>중층</td><td>10</td><td>60</td><td>30</td><td>100</td></tr>
+      <tr><td>하층</td><td>0</td><td>20</td><td>60</td><td>80</td></tr>
+      <tr><td>합</td><td>20</td><td>86</td><td>94</td><td>200</td></tr>
+    </tbody>
+  </table></div>
+  <div class="p-opts"><span>① 세대 간 하강 이동을 경험한 사람은 40명이다.</span></div>
+  <div class="p-opts"><span>② 세대 간 이동을 경험한 사람은 전체의 40%이다.</span></div>
+  <div class="p-opts"><span>③ 부모 세대와 자녀 세대의 계층 구조는 동일하다.</span></div>
+  <div class="p-opts"><span>④ 하층 부모의 자녀 중 절반 이상이 세대 간 이동을 하였다.</span></div>
+  <div class="p-opts"><span>⑤ 중층 부모의 자녀 중 계층이 대물림된 비율은 50%이다.</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ①</span>
+      <ol>
+        <li>하강 이동(부모보다 자녀 계층이 낮아짐) = 상→중(6) + 상→하(4) + 중→하(30) = 40명 → ① 참.</li>
+        <li>② 전체 이동 = 상승(중→상 10 + 하→상 0 + 하→중 20 = 30) + 하강(40) = 70명 → 70/200 = 35%로 40%가 아님 → 거짓.</li>
+        <li>③ 부모 세대 구성(10/50/40%)과 자녀 세대 구성(10/43/47%)이 서로 달라 거짓. "표에 세대 이동이 있으니 구조도 달라졌겠지"라고 넘겨짚지 말고 항상 열 합계를 직접 계산해야 합니다.</li>
+        <li>④ 하층 부모 80명 중 이동(하→상 0 + 하→중 20) = 20명 = 25% → 절반 미만 → 거짓.</li>
+        <li>⑤ 중층 부모 100명 중 대물림(중→중 60) = 60% → 50%가 아님 → 거짓.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-B1"><label for="chk-B1">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- B2 -->
+<div class="card p-card" data-pid="B2">
+  <div class="p-head"><span class="no">B2</span><span class="pill amber">중</span><span class="pill grey">계층 이동표</span></div>
+  <p class="p-stem">다음은 갑국의 세대 간 계층 이동 현황을 조사한 것이다(단위: %). 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="p-cond">조건. 상층 부모를 둔 자녀는 60명이다.</div>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>부모＼자녀</th><th>상층</th><th>중층</th><th>하층</th><th>합</th></tr></thead>
+    <tbody>
+      <tr><td>상층</td><td>3</td><td>2</td><td>1</td><td>6</td></tr>
+      <tr><td>중층</td><td>5</td><td>40</td><td>15</td><td>60</td></tr>
+      <tr><td>하층</td><td>0</td><td>14</td><td>20</td><td>34</td></tr>
+      <tr><td>합</td><td>8</td><td>56</td><td>36</td><td>100</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 조사 대상자는 총 1,000명이다.</li>
+    <li><b>ㄴ.</b> 세대 간 대물림된 사람은 총 630명이다.</li>
+    <li><b>ㄷ.</b> 세대 간 상승 이동을 경험한 사람은 하강 이동을 경험한 사람보다 많다.</li>
+    <li><b>ㄹ.</b> 자녀 세대 상층 비율은 부모 세대 상층 비율보다 낮다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄹ</span><span>② ㄴ,ㄹ</span><span>③ ㄱ,ㄴ,ㄷ</span><span>④ ㄱ,ㄷ,ㄹ</span><span>⑤ ㄴ,ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ③</span>
+      <ol>
+        <li>상층 부모 비율 6% = 60명 → 전체 = 60 ÷ 0.06 = 1,000명 (ㄱ 참). 이후 모든 %에 ×10을 하면 실수가 됩니다.</li>
+        <li>대물림(대각선) = 3+40+20 = 63% = 630명 (ㄴ 참).</li>
+        <li>상승 이동 = 중→상(5) + 하→상(0) + 하→중(14) = 19% = 190명. 하강 이동 = 상→중(2) + 상→하(1) + 중→하(15) = 18% = 180명 → 190 &gt; 180 (ㄷ 참).</li>
+        <li>자녀 세대 상층 비율(열 합계) = 8%로 부모 세대 상층 비율 6%보다 오히려 높음 → ㄹ은 "낮다"고 했으므로 거짓.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-B2"><label for="chk-B2">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- B3 -->
+<div class="card p-card" data-pid="B3">
+  <div class="p-head"><span class="no">B3</span><span class="pill rose">상 · 킬러</span><span class="pill grey">계층 이동표</span></div>
+  <p class="p-stem">다음은 갑국의 세대 간 계층 이동 현황을 조사한 것이다(단위: 명). A, B에 들어갈 값을 구하고 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>부모＼자녀</th><th>상층</th><th>중층</th><th>하층</th><th>합</th></tr></thead>
+    <tbody>
+      <tr><td>상층</td><td>A</td><td>30</td><td>10</td><td>80</td></tr>
+      <tr><td>중층</td><td>20</td><td>320</td><td>60</td><td>400</td></tr>
+      <tr><td>하층</td><td>60</td><td>B</td><td>250</td><td>320</td></tr>
+      <tr><td>합</td><td>120</td><td>360</td><td>320</td><td>800</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> A는 B의 4배이다.</li>
+    <li><b>ㄴ.</b> 세대 간 상승 이동을 경험한 사람은 하강 이동을 경험한 사람보다 많다.</li>
+    <li><b>ㄷ.</b> 세대 간 대물림된 인구는 전체의 75%이다.</li>
+    <li><b>ㄹ.</b> 자녀 세대의 상층 비율은 부모 세대의 상층 비율보다 높다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄴ</span><span>② ㄱ,ㄹ</span><span>③ ㄴ,ㄷ</span><span>④ ㄴ,ㄹ</span><span>⑤ ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ②</span>
+      <ol>
+        <li>A(상층 행)는 행의 합으로 구합니다: 80 − 30 − 10 = 40.</li>
+        <li>B(중층 열)는 열의 합으로 구합니다: 360 − 30 − 320 = 10.</li>
+        <li>ㄱ: A(40)는 B(10)의 4배 → 참.</li>
+        <li>ㄴ: 상승 이동 = 중→상(20) + 하→상(60) + 하→중(B=10) = 90명. 하강 이동 = 상→중(30) + 상→하(10) + 중→하(60) = 100명 → 90 &lt; 100이므로 오히려 하강이 더 많음 → 거짓. "상승 이동이 더 많을 것"이라는 막연한 짐작을 반드시 직접 계산으로 검증해야 하는 지점.</li>
+        <li>ㄷ: 대물림 = A(40) + 320 + 250 = 610명 → 610/800 = 76.25%로 75%가 아님(어림 계산 금지) → 거짓.</li>
+        <li>ㄹ: 부모 세대 상층 비율 = 80/800 = 10%, 자녀 세대 상층 비율(열 합계) = 120/800 = 15% → 15% &gt; 10% → 참.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-B3"><label for="chk-B3">이 문제 풀이 완료</label></div>
+</div>
+
+<h2 class="sec" id="type-c">③-C 유형: 인구 부양비 · 노령화지수</h2>
+<p class="lead">유소년부양비 = 유소년인구/생산가능인구×100, 노년부양비 = 고령인구/생산가능인구×100, 총부양비 = 두 값의 합, 노령화지수 = 고령인구/유소년인구×100 입니다.</p>
+
+<!-- C1 -->
+<div class="card p-card" data-pid="C1">
+  <div class="p-head"><span class="no">C1</span><span class="pill green">하</span><span class="pill grey">인구 부양비</span></div>
+  <p class="p-stem">다음은 갑국의 연령별 인구 변화를 나타낸 것이다(단위: 만 명). 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>유소년 인구(0~14세)</th><th>생산가능인구(15~64세)</th><th>고령 인구(65세 이상)</th></tr></thead>
+    <tbody>
+      <tr><td>t년</td><td>200</td><td>600</td><td>200</td></tr>
+      <tr><td>t+20년</td><td>100</td><td>700</td><td>300</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 노령화지수는 t+20년이 t년의 3배이다.</li>
+    <li><b>ㄴ.</b> 총부양비는 t년이 t+20년보다 높다.</li>
+    <li><b>ㄷ.</b> 고령 인구는 t년보다 t+20년에 100만 명 증가하였다.</li>
+    <li><b>ㄹ.</b> 생산가능인구 대비 유소년 인구 비율은 t+20년이 t년보다 높다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄹ</span><span>② ㄱ,ㄴ,ㄷ</span><span>③ ㄴ,ㄷ,ㄹ</span><span>④ ㄱ,ㄷ,ㄹ</span><span>⑤ ㄴ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ②</span>
+      <ol>
+        <li>노령화지수: t년 = 200/200×100 = 100, t+20년 = 300/100×100 = 300 → 정확히 3배 (ㄱ 참).</li>
+        <li>총부양비: t년 = (200+200)/600×100 ≈ 66.7%, t+20년 = (100+300)/700×100 ≈ 57.1% → t년이 더 높음 (ㄴ 참).</li>
+        <li>고령 인구: 200만 → 300만으로 100만 명 증가 (ㄷ 참).</li>
+        <li>유소년부양비(=생산가능인구 대비 유소년 비율): t년 200/600≈33.3%, t+20년 100/700≈14.3% → 오히려 낮아졌으므로 ㄹ("높다")은 거짓.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-C1"><label for="chk-C1">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- C2 -->
+<div class="card p-card" data-pid="C2">
+  <div class="p-head"><span class="no">C2</span><span class="pill amber">중</span><span class="pill grey">인구 부양비</span></div>
+  <p class="p-stem">다음은 t년 갑국과 을국의 인구 지표를 나타낸 것이다. 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>유소년부양비</th><th>노년부양비</th><th>생산가능인구</th></tr></thead>
+    <tbody>
+      <tr><td>갑국</td><td>25%</td><td>15%</td><td>800만 명</td></tr>
+      <tr><td>을국</td><td>20%</td><td>30%</td><td>500만 명</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 노령화지수는 을국이 갑국보다 높다.</li>
+    <li><b>ㄴ.</b> 총부양비는 갑국이 을국보다 높다.</li>
+    <li><b>ㄷ.</b> 고령 인구는 갑국이 을국보다 적다.</li>
+    <li><b>ㄹ.</b> 총인구는 갑국이 을국보다 많다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄷ,ㄹ</span><span>② ㄱ,ㄴ</span><span>③ ㄴ,ㄷ</span><span>④ ㄴ,ㄹ</span><span>⑤ ㄱ,ㄴ,ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ①</span>
+      <ol>
+        <li>갑국: 유소년 인구 = 800×0.25 = 200만, 고령 인구 = 800×0.15 = 120만 → 총인구 = 800+200+120 = 1,120만.</li>
+        <li>을국: 유소년 인구 = 500×0.20 = 100만, 고령 인구 = 500×0.30 = 150만 → 총인구 = 500+100+150 = 750만.</li>
+        <li>노령화지수: 갑국 = 120/200×100 = 60, 을국 = 150/100×100 = 150 → 을국이 높음 (ㄱ 참).</li>
+        <li>총부양비: 갑국 = 25+15 = 40%, 을국 = 20+30 = 50% → 갑국이 더 낮음 → ㄴ("갑국이 높다")은 거짓. 부양비는 비율 값을 그냥 더하면 되지만, 서로 다른 생산가능인구를 기준으로 한 비율이라는 점에 주의해야 합니다.</li>
+        <li>고령 인구: 120만 &lt; 150만 → 갑국이 적음 (ㄷ 참).</li>
+        <li>총인구: 1,120만 &gt; 750만 → 갑국이 많음 (ㄹ 참).</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-C2"><label for="chk-C2">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- C3 -->
+<div class="card p-card" data-pid="C3">
+  <div class="p-head"><span class="no">C3</span><span class="pill rose">상 · 킬러</span><span class="pill grey">인구 부양비</span></div>
+  <p class="p-stem">다음은 갑국의 인구 지표 변화를 나타낸 것이다. 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 생산가능인구는 t년과 t+10년이 1,000만 명으로 동일하다.)</p>
+  <div class="p-cond">조건 1. t+10년 노년부양비는 t년의 2배이다.<br>조건 2. t+10년 노령화지수는 200이다.</div>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>유소년부양비</th><th>노년부양비</th></tr></thead>
+    <tbody>
+      <tr><td>t년</td><td>30%</td><td>20%</td></tr>
+      <tr><td>t+10년</td><td>?</td><td>?</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 고령 인구는 t년보다 t+10년에 200만 명 많다.</li>
+    <li><b>ㄴ.</b> 유소년 인구는 t년보다 t+10년에 감소하였다.</li>
+    <li><b>ㄷ.</b> 총부양비는 t년이 t+10년보다 높다.</li>
+    <li><b>ㄹ.</b> 총인구는 t+10년이 t년보다 100만 명 많다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄴ,ㄷ</span><span>② ㄴ,ㄷ,ㄹ</span><span>③ ㄱ,ㄴ,ㄹ</span><span>④ ㄱ,ㄷ</span><span>⑤ ㄴ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ③</span>
+      <ol>
+        <li>t년: 유소년 인구 = 1,000×30% = 300만, 고령 인구 = 1,000×20% = 200만 → 총인구 1,500만.</li>
+        <li>t+10년 노년부양비 = 20%×2 = 40% → 고령 인구 = 1,000×40% = 400만.</li>
+        <li>노령화지수 200 = 고령 인구/유소년 인구×100 → 유소년 인구 = 400 ÷ 2 = 200만 → 유소년부양비 = 200/1,000×100 = 20%.</li>
+        <li>t+10년 총인구 = 1,000+400+200 = 1,600만.</li>
+        <li>ㄱ: 고령 인구 200만 → 400만, 증가분 200만 → 참.</li>
+        <li>ㄴ: 유소년 인구 300만 → 200만로 감소 → 참.</li>
+        <li>ㄷ: 총부양비 t년 = 30+20 = 50%, t+10년 = 20+40 = 60% → t년이 더 낮으므로 ㄷ("t년이 높다")은 거짓.</li>
+        <li>ㄹ: 총인구 1,600만 − 1,500만 = 100만 → 참.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-C3"><label for="chk-C3">이 문제 풀이 완료</label></div>
+</div>
+
+<h2 class="sec" id="type-d">③-D 유형: 사회보장제도 · 빈곤 표</h2>
+<p class="lead">절대적/상대적 빈곤선 계산과 사회보험·공공부조 수급 구조를 함께 물어보는 유형입니다. 상대적 빈곤선 = 중위 소득 × 50%.</p>
+
+<!-- D1 -->
+<div class="card p-card" data-pid="D1">
+  <div class="p-head"><span class="no">D1</span><span class="pill green">하</span><span class="pill grey">빈곤 표</span></div>
+  <p class="p-stem">다음은 갑국의 빈곤 관련 지표 변화를 나타낸 것이다. 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 갑국 전체 인구는 두 시기 모두 1,000만 명으로 동일하다.)</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>t년</th><th>t+5년</th></tr></thead>
+    <tbody>
+      <tr><td>절대적 빈곤선(만 원)</td><td>100</td><td>130</td></tr>
+      <tr><td>절대적 빈곤 인구(만 명)</td><td>150</td><td>120</td></tr>
+      <tr><td>중위 소득(만 원)</td><td>300</td><td>400</td></tr>
+      <tr><td>상대적 빈곤 인구(만 명)</td><td>200</td><td>250</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 절대적 빈곤율은 t년보다 t+5년에 낮다.</li>
+    <li><b>ㄴ.</b> 상대적 빈곤율은 t년보다 t+5년에 높다.</li>
+    <li><b>ㄷ.</b> 상대적 빈곤선은 t년보다 t+5년에 50만 원 높다.</li>
+    <li><b>ㄹ.</b> 절대적 빈곤 인구는 상대적 빈곤 인구보다 항상 많다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄹ</span><span>② ㄱ,ㄴ,ㄷ</span><span>③ ㄴ,ㄷ,ㄹ</span><span>④ ㄱ,ㄴ,ㄹ</span><span>⑤ ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ②</span>
+      <ol>
+        <li>절대적 빈곤율: t년 150/1,000=15%, t+5년 120/1,000=12% → 낮아짐 (ㄱ 참).</li>
+        <li>상대적 빈곤선(중위 소득×50%): t년 150만 원, t+5년 200만 원.</li>
+        <li>상대적 빈곤율: t년 200/1,000=20%, t+5년 250/1,000=25% → 높아짐 (ㄴ 참).</li>
+        <li>상대적 빈곤선 차이: 200−150=50만 원 (ㄷ 참).</li>
+        <li>ㄹ: 두 시기 모두 절대적 빈곤 인구(150·120만)가 상대적 빈곤 인구(200·250만)보다 적으므로 "항상 많다"는 거짓.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-D1"><label for="chk-D1">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- D2 -->
+<div class="card p-card" data-pid="D2">
+  <div class="p-head"><span class="no">D2</span><span class="pill amber">중</span><span class="pill grey">사회보장제도</span></div>
+  <p class="p-stem">다음은 갑국 사회보장제도 A, B의 운영 현황을 나타낸 것이다. A는 국민연금(사회보험), B는 기초생활보장제도(공공부조)이다. 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>수급자 수</th><th>정부 재정 총 지원액</th></tr></thead>
+    <tbody>
+      <tr><td>A (국민연금)</td><td>500만 명</td><td>10조 원</td></tr>
+      <tr><td>B (기초생활보장)</td><td>200만 명</td><td>8조 원</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> 1인당 평균 지원액은 B가 A의 2배이다.</li>
+    <li><b>ㄴ.</b> 수급자 수는 A가 B의 2.5배이다.</li>
+    <li><b>ㄷ.</b> A는 B와 달리 상호 부조의 원리가 적용된다.</li>
+    <li><b>ㄹ.</b> B에 투입된 정부 재정 총액은 A보다 많다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄴ</span><span>② ㄴ,ㄷ,ㄹ</span><span>③ ㄱ,ㄷ,ㄹ</span><span>④ ㄱ,ㄴ,ㄹ</span><span>⑤ ㄱ,ㄴ,ㄷ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ⑤</span>
+      <ol>
+        <li>1인당 평균 지원액: A = 10조÷500만 = 200만 원, B = 8조÷200만 = 400만 원 → B가 A의 2배 (ㄱ 참).</li>
+        <li>수급자 수 비: 500만÷200만 = 2.5배 (ㄴ 참).</li>
+        <li>사회보험(A)은 가입자들이 보험료를 분담하는 상호 부조 원리가 적용되고, 공공부조(B)는 전액 국가·지방자치단체 재정으로 지원되므로 상호 부조 원리가 적용되지 않음 (ㄷ 참).</li>
+        <li>ㄹ: 정부 재정 총액은 A(10조 원)가 B(8조 원)보다 많으므로 "B가 A보다 많다"는 거짓. 수급자 1인당 지원액이 크다고 재정 총액도 큰 것은 아니라는 점에 유의합니다.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-D2"><label for="chk-D2">이 문제 풀이 완료</label></div>
+</div>
+
+<!-- D3 -->
+<div class="card p-card" data-pid="D3">
+  <div class="p-head"><span class="no">D3</span><span class="pill rose">상 · 킬러</span><span class="pill grey">빈곤 표</span></div>
+  <p class="p-stem">다음은 갑국의 빈곤 지표 변화를 나타낸 것이다. A, B에 들어갈 값을 구하고 이에 대한 옳은 설명을 &lt;보기&gt;에서 있는 대로 고른 것은?</p>
+  <div class="scroll-x"><table class="tbl">
+    <thead><tr><th>구분</th><th>t년</th><th>t+10년</th></tr></thead>
+    <tbody>
+      <tr><td>전체 인구</td><td>1,000만 명</td><td>1,200만 명</td></tr>
+      <tr><td>중위 소득</td><td>200만 원</td><td>300만 원</td></tr>
+      <tr><td>상대적 빈곤 인구</td><td>150만 명</td><td>A만 명</td></tr>
+      <tr><td>상대적 빈곤율</td><td>B%</td><td>15%</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="p-bogi">
+    <li><b>ㄱ.</b> A는 180이다.</li>
+    <li><b>ㄴ.</b> B는 15이다.</li>
+    <li><b>ㄷ.</b> 상대적 빈곤선은 t년보다 t+10년에 50만 원 높다.</li>
+    <li><b>ㄹ.</b> 상대적 빈곤 인구는 t년보다 t+10년에 감소하였다.</li>
+  </ul>
+  <div class="p-opts"><span>① ㄱ,ㄴ,ㄷ</span><span>② ㄱ,ㄴ,ㄹ</span><span>③ ㄴ,ㄷ,ㄹ</span><span>④ ㄱ,ㄷ,ㄹ</span><span>⑤ ㄱ,ㄴ,ㄷ,ㄹ</span></div>
+  <details class="ans"><summary>정답 및 풀이 보기</summary>
+    <div class="sol">
+      <span class="ans-badge">정답 ①</span>
+      <ol>
+        <li>B(t년 상대적 빈곤율) = 150 ÷ 1,000 × 100 = 15 (ㄴ 참).</li>
+        <li>A(t+10년 상대적 빈곤 인구) = 1,200 × 15% = 180 (ㄱ 참).</li>
+        <li>상대적 빈곤선 = 중위 소득 × 50%: t년 100만 원, t+10년 150만 원 → 차이 50만 원 (ㄷ 참).</li>
+        <li>ㄹ: 상대적 빈곤율은 15%로 두 시기가 같지만, 전체 인구가 1,000만→1,200만으로 늘어 상대적 빈곤 인구는 150만→180만 명으로 오히려 증가했으므로 "감소하였다"는 거짓. <b>비율이 같아도 모집단이 커지면 실수는 늘어난다</b>는 8단계 전략의 함정 체크리스트가 그대로 적용되는 문제입니다.</li>
+      </ol>
+    </div>
+  </details>
+  <div class="done-row"><input type="checkbox" id="chk-D3"><label for="chk-D3">이 문제 풀이 완료</label></div>
+</div>
+
+<div class="card" style="padding:16px 20px;margin-top:8px">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <b style="font-size:14px">풀이 진행률</b>
+    <span id="progText" style="font-size:13px;color:var(--text-2)">0 / 12 완료</span>
+  </div>
+  <div class="prog-bar"><div id="progFill" style="width:0%"></div></div>
+</div>
+
+<div class="src" style="margin-top:20px">
+  <b>참고 자료</b><br>
+  · EBSi 풀서비스 — 2027학년도 6월·9월 모의평가 문제/정답/해설<br>
+  · 지역내일, 베리타스알파, 진학사, 대성학원 등 모의평가 출제 경향 분석 기사(2025~2026)<br>
+  · 오르비(orbi.kr) 사회문화 표 분석 풀이법 게시글, 나무위키 「대학수학능력시험/사회탐구 영역/사회·문화」 문서<br>
+  · 위 연습 문제 12제는 실제 기출을 그대로 옮긴 것이 아니라, 위 자료들이 공통으로 지적한 출제 패턴과 함정 요소를 반영해 새로 제작한 문제입니다.
+</div>
+
+</main>
+
+<footer class="foot">
+  <div>이 페이지는 김나은 학생의 2027학년도 수능 사회문화 대비를 위해 제작되었습니다. 실제 기출 분석은 EBSi·평가원 원문 자료를 함께 참고하세요.</div>
+</footer>
+
+<script>
+(function(){
+  var KEY = 'society_progress_v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) { state = {}; }
+
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.done-row input[type=checkbox]'));
+  function updateProgress(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    var pct = Math.round(done / boxes.length * 100);
+    document.getElementById('progText').textContent = done + ' / ' + boxes.length + ' 완료';
+    document.getElementById('progFill').style.width = pct + '%';
+  }
+  boxes.forEach(function(b){
+    var id = b.id;
+    if (state[id]) b.checked = true;
+    b.addEventListener('change', function(){
+      state[id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {}
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  var themeBtn = document.getElementById('themeBtn');
+  var THEME_KEY = 'naeun_theme';
+  function applyTheme(t){
+    document.documentElement.setAttribute('data-theme', t || '');
+    themeBtn.textContent = t === 'dark' ? '라이트' : '다크';
+  }
+  applyTheme(localStorage.getItem(THEME_KEY) || '');
+  themeBtn.addEventListener('click', function(){
+    var cur = localStorage.getItem(THEME_KEY) || '';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+  });
+})();
+</script>
+</body>
+</html>
